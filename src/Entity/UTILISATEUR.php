@@ -42,6 +42,21 @@ class UTILISATEUR
      */
     private $DateNaissance;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=TYPEABONNEMENT::class, inversedBy="id_typeabonnement")
+     */
+    private $tYPEABONNEMENT;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=TYPEPAIEMENT::class, inversedBy="id_typepaiement")
+     */
+    private $tYPEPAIEMENT;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=TEST::class, inversedBy="id_test")
+     */
+    private $tEST;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +118,42 @@ class UTILISATEUR
     public function setDateNaissance(\DateTimeInterface $DateNaissance): self
     {
         $this->DateNaissance = $DateNaissance;
+
+        return $this;
+    }
+
+    public function getTYPEABONNEMENT(): ?TYPEABONNEMENT
+    {
+        return $this->tYPEABONNEMENT;
+    }
+
+    public function setTYPEABONNEMENT(?TYPEABONNEMENT $tYPEABONNEMENT): self
+    {
+        $this->tYPEABONNEMENT = $tYPEABONNEMENT;
+
+        return $this;
+    }
+
+    public function getTYPEPAIEMENT(): ?TYPEPAIEMENT
+    {
+        return $this->tYPEPAIEMENT;
+    }
+
+    public function setTYPEPAIEMENT(?TYPEPAIEMENT $tYPEPAIEMENT): self
+    {
+        $this->tYPEPAIEMENT = $tYPEPAIEMENT;
+
+        return $this;
+    }
+
+    public function getTEST(): ?TEST
+    {
+        return $this->tEST;
+    }
+
+    public function setTEST(?TEST $tEST): self
+    {
+        $this->tEST = $tEST;
 
         return $this;
     }

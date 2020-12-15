@@ -22,6 +22,11 @@ class RESULTATTEST
      */
     private $LibelleResultat;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=TEST::class, inversedBy="id_resultat")
+     */
+    private $tEST;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +40,18 @@ class RESULTATTEST
     public function setLibelleResultat(string $LibelleResultat): self
     {
         $this->LibelleResultat = $LibelleResultat;
+
+        return $this;
+    }
+
+    public function getTEST(): ?TEST
+    {
+        return $this->tEST;
+    }
+
+    public function setTEST(?TEST $tEST): self
+    {
+        $this->tEST = $tEST;
 
         return $this;
     }

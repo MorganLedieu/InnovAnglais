@@ -22,6 +22,11 @@ class ROLE
      */
     private $LibelleRole;
 
+    /**
+     * @ORM\OneToOne(targetEntity=UTILISATEUR::class, cascade={"persist", "remove"})
+     */
+    private $id_utilisateur;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -35,6 +40,18 @@ class ROLE
     public function setLibelleRole(string $LibelleRole): self
     {
         $this->LibelleRole = $LibelleRole;
+
+        return $this;
+    }
+
+    public function getIdUtilisateur(): ?UTILISATEUR
+    {
+        return $this->id_utilisateur;
+    }
+
+    public function setIdUtilisateur(?UTILISATEUR $id_utilisateur): self
+    {
+        $this->id_utilisateur = $id_utilisateur;
 
         return $this;
     }
